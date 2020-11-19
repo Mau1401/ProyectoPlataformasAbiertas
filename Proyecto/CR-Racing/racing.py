@@ -139,6 +139,7 @@ class CarRacing:
         text = font.render("Score : " + str(count), True, self.white)
         self.gameDisplay.blit(text, (0, 0))
 
+    """
     def display_credit(self):
         font = pygame.font.SysFont("lucidaconsole", 14)
         text = font.render("Thanks To Anuj,", True, self.white)
@@ -151,7 +152,7 @@ class CarRacing:
         self.gameDisplay.blit(text, (600, 560))
         text = font.render("code-projects.org", True, self.white)
         self.gameDisplay.blit(text, (600, 570))
-
+    """
 
 if __name__ == '__main__':
     car_racing = CarRacing()
