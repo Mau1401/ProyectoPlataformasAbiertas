@@ -54,11 +54,10 @@ def main():
 
     button_5.topleft = [200, 350]
     botones.append({'texto': "Creditos", 'imagen': imagen_boton, 'imagen_pressed': imagen_boton_pressed, 'rect': button_5, 'on_click': False})
-    #IMP DEL MENU PARA PRESENTACION
     # Se asigna el click false ya que inicialmente no debe estar presionado el boton fisicamente #
     click = False
     # While finito para el uso del menu y pintado de los elementos de la interfaz #
-    while True: 
+    while True:
         #For para su repectiva actualicion de los eventos#
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -81,7 +80,7 @@ def main():
                 for boton in botones:
                     boton['on_click'] = False
       
-        ########################################################################################
+        
         # Manejo de la matriz de botos#
         if botones[0]['on_click'] and click:
             #Seleccion de la posicion 0 donde llama a la funcion J_2048 #
@@ -104,7 +103,6 @@ def main():
             #Seleccion de la posicion 4 donde llama a la funcion Creditos #
             Creditos()
             click = False
-        #########################################################################################
         # Al existir el problema de la salida de la ventana a una diferente de su tamaño se tiene la solucion de reiterar con su tamaño para que se asigne el necesario #
         dimensiones = [600, 460]
         # Set de las dimensiones de la pantalla del menú principal #
@@ -163,7 +161,6 @@ def J_2048():
 
     button_3.topleft = [200, 300]
     botones.append({'texto': "  5X5  ", 'imagen': imagen_boton, 'imagen_pressed': imagen_boton_pressed, 'rect': button_3, 'on_click': False})
-    #SUBMENU 2048
     click = False
     while True:
         for event in pygame.event.get():
@@ -181,16 +178,21 @@ def J_2048():
             if event.type == MOUSEBUTTONUP:
                 for boton in botones:
                     boton['on_click'] = False
-       
+      
+        
         if botones[0]['on_click'] and click:
+
             tamano3x3()
-            click = False 
+            click = False
+            
         if botones[1]['on_click'] and click:
+
             tamano4x4()
             click = False
+        
         if botones[2]['on_click'] and click:
             tamano5x5()
-            click = False    
+            click = False
         dimensiones = [600, 460]
         pantalla = pygame.display.set_mode(dimensiones)
         pygame.display.set_caption("2048")
@@ -200,7 +202,7 @@ def J_2048():
         clock.tick(60)
     pygame.quit()
 #_________________________________________________________________________________________#
-#FUNCIONES DEL SUBMENU
+
 # Funcion para mandar el tamaño 3x3 al juego 2048 #
 def tamano3x3():
     Juego2048.main(tamano = 3)
@@ -240,10 +242,12 @@ def Historial_CR_Racing():
         # Y con la ayuda de Pintar_Texto_en_fondo_negro y un recorrido por la matriz se hace la impresión #
         
         if(len(matrix)>=20):
+
             for i in range(0,20):
                 Pintar_Texto_en_fondo_negro("Posicion "+str(i+1)+" # "+str(matrix[i][0]), font, (255, 255, 255), screen, 200, contador*20)
                 contador= contador+1
         if(len(matrix)<20):
+            
             for i in range(len(matrix)):
                 Pintar_Texto_en_fondo_negro("Posicion "+str(i+1)+" # "+str(matrix[i][0]), font, (255, 255, 255), screen, 200, contador*20)
                 contador= contador+1      
@@ -255,6 +259,7 @@ def Historial_CR_Racing():
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     main()
+        
         pygame.display.update()
         mainClock.tick(60)
 
@@ -336,10 +341,8 @@ def Creditos():
         time.sleep(0.01)
         if movimiento >=500:
             movimiento=-291
-
-
 #_________________________________________________________________________________________#
-# Llamado inicial para el arranque de el main del menú principal
+# Llamado inicial para el arranque de del main o menú principal
 if __name__ == '__main__':
     main()
 #_________________________________________________________________________________________#
